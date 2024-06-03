@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     private static GameController gameInstance;
 
     // Представления
+    [SerializeField] LoadView loadView;
     [SerializeField] StartView startView;
     [SerializeField] GameView gameView;
     [SerializeField] GameObject pauseGameView;
@@ -26,6 +27,9 @@ public class GameController : MonoBehaviour
         // Проверяем, существует ли уже экземпляр GameController
         if (gameInstance == null)
         {
+
+            loadView.ShowLoadingScreen();
+
             // Если нет, то назначаем текущий экземпляр и инициализируем модели
             gameInstance = this;
             gameModel = new GameModel();
